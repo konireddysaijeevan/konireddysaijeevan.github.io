@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#f7f8f5" />
+  <meta name="description" content="Sai Jeevan is a backend developer experienced in SQL Server, Java, retail ERP development, purchasing, goods receiving, invoicing, and third-party vendor API integrations." />
+  <title>Sai Jeevan — Backend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --canvas: #f7f8f5;
+      --paper: #ffffff;
+      --paper-alt: #eef1eb;
+      --ink: #172623;
+      --ink-soft: #52635d;
+      --border: #dce2d9;
+      --accent: #247c5f;
+      --accent-dark: #175740;
+      --accent-light: #dff2e9;
+      --dark: #102b23;
+      --dark-2: #183d31;
+      --radius: 18px;
+      --shadow: 0 22px 60px rgba(24,51,37,.08);
+      --serif: 'Space Grotesk', 'Arial Narrow', Arial, sans-serif;
+      --sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --mono: 'DM Mono', ui-monospace, Consolas, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; color: var(--ink); background: var(--canvas); font-family: var(--sans); line-height: 1.55; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: 3px solid #49bd91; outline-offset: 4px; border-radius: 5px; }
+    ::selection { background: #b5e3cc; color: #102b23; }
+    .container { width: min(1180px, calc(100% - 72px)); margin-inline: auto; }
+    .mono { font-family: var(--mono); letter-spacing: -.015em; }
+    .eyebrow { font: 500 11px/1.6 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+    .topbar { height: 78px; display: flex; align-items: center; border-bottom: 1px solid var(--border); background: rgba(247,248,245,.94); backdrop-filter: blur(18px); position: sticky; top: 0; z-index: 100; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap: 18px; }
+    .brand { display:flex; align-items:center; gap: 12px; font-family: var(--serif); font-weight: 700; font-size: 17px; white-space: nowrap; }
+    .brand-mark { display:grid; place-items:center; color: #fff; background: var(--dark); width: 39px; height:39px; border-radius: 11px; font-family:var(--mono); font-size: 13px; letter-spacing:-1px; }
+    .nav-links { display:flex; align-items:center; gap:32px; font-size:13px; font-weight:600; }
+    .nav-links a:hover, .foot-links a:hover { color: var(--accent); }
+    .nav-cta { display:inline-flex; align-items:center; gap:9px; padding:11px 17px; background:var(--dark); color:#fff; font-size:12px; font-weight:700; border-radius: 9px; transition: transform .2s, background .2s; white-space:nowrap; }
+    .nav-cta:hover, .btn-primary:hover { transform: translateY(-2px); background: var(--accent-dark); }
+    .mobile-toggle { display:none; background:none; border:1px solid var(--border); border-radius:9px; width:42px; height:42px; align-items:center; justify-content:center; color:var(--ink); cursor:pointer; font-size:22px; }
+    .hero { padding: 102px 0 86px; display:grid; grid-template-columns: 1.05fr .95fr; gap:60px; align-items:center; }
+    .hero-badge { display:inline-flex; gap:10px; align-items:center; padding:8px 13px; background:var(--accent-light); color:var(--accent-dark); border:1px solid #cae8d6; border-radius:100px; font:500 11px var(--mono); }
+    .pulse { width:7px; height:7px; display:inline-block; background:#33ad7d; border-radius:50%; box-shadow:0 0 0 4px rgba(51,173,125,.13); }
+    h1, h2, h3, p { margin-top:0; }
+    h1, h2, h3 { font-family: var(--serif); letter-spacing: -.05em; }
+    .hero h1 { max-width:690px; margin:24px 0 24px; font-weight:700; font-size:clamp(43px, 5.25vw, 72px); line-height:1.065; }
+    .hero h1 em { font-style:normal; color:var(--accent); }
+    .lead { color:var(--ink-soft); max-width: 560px; font-size:16px; line-height:1.9; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin:30px 0 26px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:11px; padding:14px 19px; border-radius:10px; font-weight:700; font-size:13px; transition: .2s; cursor:pointer; border:1px solid transparent; }
+    .btn-primary { color:#fff; background:var(--dark); }
+    .btn-secondary { background:#fff; border-color:var(--border); }
+    .btn-secondary:hover { border-color:var(--accent); color:var(--accent-dark); }
+    .hero-proof { display:flex; flex-wrap:wrap; align-items:center; gap:12px 20px; margin-top:34px; font-size:12px; color:var(--ink-soft); }
+    .hero-proof strong { color:var(--ink); font-weight:700; }
+    .dot-sep { width:3px; height:3px; background:#8b9c91; border-radius:50%; }
+    .terminal { border-radius:20px; overflow:hidden; box-shadow:0 27px 75px rgba(13,46,32,.17); background:var(--dark); border: 1px solid #345849; transform: rotate(1deg); }
+    .terminal-top { height:54px; padding:0 22px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.11); color:#a4c2b4; font:11px var(--mono); }
+    .window-dots { display:flex; gap:6px; }
+    .window-dots i { width:8px; height:8px; background:#91b6a6; opacity:.65; border-radius:50%; }
+    .window-dots i:nth-child(2) { opacity:.45; }.window-dots i:nth-child(3) { opacity:.3; }
+    .terminal-body { padding:29px; position:relative; }
+    .terminal-h { color:#dff7e7; font:500 11px var(--mono); letter-spacing:.06em; text-transform:uppercase; margin-bottom:20px; }
+    .flow-node { position:relative; padding:15px 18px; background:#1d4535; border:1px solid #356652; border-radius:10px; display:flex; justify-content:space-between; gap:10px; align-items:center; }
+    .flow-node strong { display:block; font:600 14px var(--sans); color:#f3fcf7; }
+    .flow-node small { display:block; font:11px var(--mono); color:#9ac6ae; padding-top:5px; }
+    .flow-node .node-badge { white-space:nowrap; font:10px var(--mono); color:#c6f2d8; border:1px solid #4c8467; background:#315b46; padding:5px 8px; border-radius:5px; }
+    .flow-node.featured { background:#d5f2df; border-color:#d5f2df; }
+    .flow-node.featured strong { color:#103c2d; }.flow-node.featured small { color:#456c5b; }.flow-node.featured .node-badge { color:#176045; border-color:#a2d4b5; background:#e6fbed; }
+    .connector { height:39px; display:flex; align-items:center; justify-content:center; position:relative; }
+    .connector::before { content:''; width:1px; height:100%; background:#618f72; position:absolute; }
+    .connector span { color:#b7dfc8; background:var(--dark); padding:3px 9px; z-index:1; font:10px var(--mono); }
+    .terminal-foot { margin-top:22px; border-top:1px solid rgba(255,255,255,.13); padding-top:17px; display:flex; gap:12px; justify-content:space-between; flex-wrap:wrap; color:#8fac9b; font:10px var(--mono); }
+    .terminal-foot b { color:#b7efd1; font-weight:400; }
+    .expertise-strip { border-block:1px solid var(--border); background:#f0f3ed; }
+    .expertise-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; padding-block:22px; }
+    .expertise-inner span { color:#4e6055; font:500 12px var(--mono); }
+    .expertise-inner strong { color:#2e3b33; font-size:13px; }
+    section.content { padding:110px 0 0; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:30px; margin-bottom:36px; }
+    .section-head h2 { font-size:clamp(33px, 3.7vw, 47px); line-height:1.15; margin:9px 0 0; max-width:720px; }
+    .section-head p { color:var(--ink-soft); font-size:14px; max-width:310px; margin:0; line-height:1.8; }
+    .case-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:19px; }
+    .case { border-radius:var(--radius); border:1px solid var(--border); background:var(--paper); padding:27px; display:flex; flex-direction:column; gap:19px; box-shadow:0 3px 14px rgba(23,38,35,.02); }
+    .case:first-child { grid-column:1 / -1; display:grid; grid-template-columns: 1.04fr .96fr; gap:38px; padding:35px; }
+    .case-visual { min-height:205px; border-radius:12px; background: #ebf3ee; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; }
+    .case:first-child .case-visual { min-height:330px; }
+    .case-topline { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+    .case-index { font:500 11px var(--mono); color:var(--accent); }
+    .case-type { font:11px var(--mono); color:#798b80; }
+    .case h3 { font-size:29px; line-height:1.17; margin:0 0 13px; }
+    .case:not(:first-child) h3 { font-size:24px; }
+    .case p { font-size:14px; color:var(--ink-soft); line-height:1.8; margin:0 0 19px; }
+    .tags { display:flex; flex-wrap:wrap; gap:7px; }
+    .tag { border-radius:6px; background:#eff4ef; color:#486054; padding:6px 8px; font:10px var(--mono); }
+    .case-more { margin-top:auto; border-top:1px solid var(--border); padding-top:15px; }
+    details > summary { list-style:none; cursor:pointer; font-size:13px; font-weight:700; color:var(--accent-dark); display:flex; justify-content:space-between; align-items:center; }
+    details > summary::-webkit-details-marker { display:none; }
+    details > summary::after { content:'+'; font:20px var(--mono); }
+    details[open] > summary::after { content:'−'; }
+    .case-detail { padding-top:16px; font-size:13px; line-height:1.8; color:var(--ink-soft); }
+    .case-detail strong { color:var(--ink); }
+    .case-detail ul { padding-left:20px; margin:10px 0 0; }
+    .case-detail li { margin-bottom:7px; }
+    .visual-retail { background:linear-gradient(140deg,#e8f2eb,#d5e6dc); padding:32px; }
+    .retail-board { width:min(100%,420px); background:#fafffc; border:1px solid #c8dccf; border-radius:13px; box-shadow:0 17px 45px rgba(16,67,45,.10); padding:17px; }
+    .retail-header { display:flex; justify-content:space-between; gap:10px; border-bottom:1px solid #d9e7dd; padding:1px 5px 13px; color:#497962; font:500 10px var(--mono); letter-spacing:.05em; }
+    .retail-step { display:grid; grid-template-columns:30px 1fr auto; gap:11px; align-items:center; padding:17px 5px; border-bottom:1px solid #e1ece4; }
+    .retail-step:last-child { border-bottom:0; }
+    .retail-count { color:#5d9675; font:500 12px var(--mono); }
+    .retail-step strong { display:block; color:#183e2d; font:600 14px var(--sans); }
+    .retail-step small { display:block; margin-top:3px; color:#70897a; font:11px var(--mono); }
+    .retail-pill { border-radius:20px; background:#d7eee0; padding:5px 8px; color:#306f4b; font:500 9px var(--mono); }
+    .visual-lanes { width:83%; display:flex; flex-direction:column; gap:15px; }
+    .lane { display:grid; grid-template-columns:90px 1fr 95px; align-items:center; gap:12px; }
+    .lane span { font:10px var(--mono); color:#3f6955; }
+    .lane b { font:500 10px var(--mono); color:#2d6350; background:#d5e9dd; padding:9px 11px; border-radius:6px; text-align:center; }
+    .lane-line { height:3px; background:linear-gradient(90deg,#a3c6b0,#20785b); border-radius:5px; position:relative; }
+    .lane-line::after { content:'›'; position:absolute; right:-5px; top:-13px; font-size:24px; color:#20785b; }
+    .visual-label { position:absolute; bottom:16px; left:20px; color:#789588; font:10px var(--mono); }
+    .visual-api { background:#172f28; display:flex; flex-direction:column; align-items:stretch; padding:26px; gap:11px; }
+    .api-row { display:flex; gap:10px; align-items:center; font:11px var(--mono); color:#b5e9c8; border:1px solid #375e4b; border-radius:7px; padding:13px; background:#204133; }
+    .api-row span { display:inline-block; min-width:57px; color:#65c693; }
+    .api-row.dim { opacity:.6; }
+    .visual-cms { background:#eaf0f8; padding:22px; display:flex; align-items:center; }
+    .cms-window { width:100%; background:#fff; border:1px solid #d8e1ed; border-radius:8px; box-shadow:0 12px 27px rgba(47,77,115,.09); overflow:hidden; }
+    .cms-bar { background:#e0e8f1; height:24px; padding:8px; display:flex; gap:4px; }.cms-bar i { border-radius:50%; width:6px; height:6px; background:#acbfd2; }
+    .cms-inner { padding:16px; display:grid; grid-template-columns:repeat(3,1fr); gap:7px; }
+    .cms-card { height:77px; border-radius:6px; background:linear-gradient(135deg, #d7efe2, #b7d9cc); padding:8px; display:flex; align-items:flex-end; }
+    .cms-card:nth-child(2) { background:linear-gradient(135deg,#d4e2f1,#b6c7dc); }.cms-card:nth-child(3) { background:linear-gradient(135deg,#f0e8d5,#ddd1ac); }
+    .cms-card i { width:70%; height:5px; border-radius:4px; background:rgba(37,78,62,.35); }
+    .skills-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .skill-card { background:var(--paper); border:1px solid var(--border); padding:25px 22px; border-radius:var(--radius); }
+    .skill-num { color:#7b9484; font:11px var(--mono); margin-bottom:27px; }
+    .skill-card h3 { font-size:19px; line-height:1.25; margin-bottom:11px; }
+    .skill-card p { font-size:13px; color:var(--ink-soft); line-height:1.8; margin-bottom:0; }
+    .toolkit { margin-top:24px; display:flex; flex-wrap:wrap; gap:9px; }
+    .tool { border:1px solid #cbd8cc; padding:9px 12px; border-radius:7px; font:11px var(--mono); color:#4e675a; background:#f6faf6; }
+    .notes-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:15px; }
+    .note { background: #fff; border:1px solid var(--border); border-radius:var(--radius); padding:25px; }
+    .note .eyebrow { font-size:10px; }
+    .note h3 { font-size:22px; line-height:1.28; margin:24px 0 14px; }
+    .note p { font-size:13px; color:var(--ink-soft); line-height:1.8; }
+    .note details { margin-top:21px; padding-top:17px; border-top:1px solid var(--border); }
+    .note details p { margin-top:12px; margin-bottom:0; }
+    .about { background: #eaf0e9; padding:55px; border-radius:22px; display:grid; grid-template-columns:.6fr 1fr; gap:45px; }
+    .about h2 { font-size:clamp(33px,3.8vw,48px); line-height:1.1; margin:12px 0 0; }
+    .about p { font-size:15px; color:#4b6053; line-height:1.95; margin-bottom:15px; }
+    .about p:last-child { margin:0; }
+    .about-list { display:flex; gap:10px; flex-wrap:wrap; margin-top:20px; }
+    .about-list span { border:1px solid #c5d7c7; border-radius:30px; padding:7px 12px; font:11px var(--mono); color:#44684e; }
+    .contact-card { display:grid; grid-template-columns: 1fr auto; gap:35px; align-items:center; background:var(--dark); color:white; border-radius:22px; padding:52px 58px; }
+    .contact-card .eyebrow { color:#93dab0; }
+    .contact-card h2 { font-size:clamp(32px,4vw,49px); line-height:1.12; margin:11px 0 15px; max-width:700px; }
+    .contact-card p { margin:0; color:#b6d3c1; font-size:14px; max-width:640px; line-height:1.8; }
+    .btn-contact { background:#c9f2d9; color:#18422d; white-space:nowrap; }
+    .btn-contact:hover { background:#e3fbea; transform:translateY(-2px); }
+    .contact-links { display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
+    .contact-links a { color:#a6e0bd; text-decoration:underline; text-underline-offset:4px; font-size:12px; }
+    .contact-links a:hover { color:white; }
+    footer { padding:42px 0 48px; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:15px; border-top:1px solid var(--border); padding-top:27px; }
+    footer p { font:11px var(--mono); color:#829286; margin:0; }.foot-links { display:flex; gap:20px; font:12px var(--mono); }
+    .setup-note { margin-top:12px !important; font-size:10px !important; color:#92b4a1 !important; }
+    @media(max-width:1000px) {
+      .hero { grid-template-columns:1fr; gap:42px; padding-top:80px; }.hero h1 { max-width:760px; }
+      .terminal { max-width:650px; transform:none; }.skills-grid {grid-template-columns:repeat(2,1fr)}
+      .notes-grid {grid-template-columns:1fr 1fr;}.case:first-child {gap:20px;}
+    }
+    @media(max-width:680px) {
+      .container { width:min(100% - 36px,1180px); }.topbar { height:68px; }.nav-cta { display:none; }.mobile-toggle { display:flex; }
+      .nav-links { display:none; position:absolute; left:0; right:0; top:68px; padding:17px 20px 23px; background:var(--canvas); border-bottom:1px solid var(--border); box-shadow:0 14px 20px rgba(0,0,0,.06); flex-direction:column; align-items:stretch; gap:0; }
+      .nav-links.open { display:flex; }.nav-links a {padding:12px 5px;}
+      .hero {padding:58px 0 64px;gap:36px;}.hero h1 {font-size:clamp(39px,11vw,59px);margin:23px 0 16px;}.lead {font-size:14px;}
+      .hero-proof {font-size:11px; gap:10px;}.terminal-body {padding:18px;}.terminal {border-radius:15px;}
+      .flow-node {padding:12px;}.flow-node strong {font-size:12px;}.flow-node small {font-size:10px;}.flow-node .node-badge {font-size:9px;}
+      .expertise-inner {justify-content:flex-start;gap:15px 23px;}.expertise-inner span {width:100%;}
+      section.content {padding-top:75px;}.section-head {display:block;margin-bottom:25px;}.section-head p {margin-top:14px;max-width:540px;}
+      .case-grid, .notes-grid, .skills-grid {grid-template-columns:1fr;}
+      .case:first-child {grid-column:auto;display:flex;padding:23px;gap:20px;}.case {padding:23px;}.case h3,.case:not(:first-child) h3 {font-size:25px;}
+      .case:first-child .case-visual {min-height:230px;}.case-visual {min-height:192px;}
+      .about {grid-template-columns:1fr;padding:28px;gap:20px;}
+      .contact-card {grid-template-columns:1fr;padding:30px 25px;gap:24px;}.btn-contact {white-space:normal;}
+      .footer-inner {align-items:start;flex-direction:column;}
+    }
+    @media(prefers-reduced-motion:reduce) { html {scroll-behavior:auto;} *,*::before,*::after {transition:none !important;} }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="#top" class="brand" aria-label="Sai Jeevan, back to top"><span class="brand-mark">SJ</span><span>Sai Jeevan<span style="color:#87988c">.</span></span></a>
+      <div class="nav-links" id="nav-links">
+        <a href="#work">Case studies</a><a href="#expertise">Expertise</a><a href="#notes">Engineering notes</a><a href="#about">About</a>
+      </div>
+      <a class="nav-cta" href="#contact">Let's connect <span aria-hidden="true">↗</span></a>
+      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links" id="menu-toggle">☰</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero container">
+      <div>
+        <div class="hero-badge"><span class="pulse" aria-hidden="true"></span> Backend developer · SQL Server & Java</div>
+        <h1>Making complex data systems <em>work reliably.</em></h1>
+        <p class="lead">I'm Sai Jeevan, a backend developer with 5+ years of experience working with SQL Server, Java, and business-critical integrations. I focus on dependable data flows, maintainable database logic, and systems that are easier to operate.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">Explore my work <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="#about">More about me <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-proof"><strong>SQL Server</strong><span class="dot-sep" aria-hidden="true"></span><strong>Java / Spring Boot</strong><span class="dot-sep" aria-hidden="true"></span><span>ERP · E-commerce · Integrations</span></div>
+      </div>
+      <div class="terminal" aria-label="Conceptual backend data synchronization flow">
+        <div class="terminal-top"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><span>architecture / data-sync</span><span>● ● ●</span></div>
+        <div class="terminal-body">
+          <div class="terminal-h">A system, not just an API</div>
+          <div class="flow-node"><div><strong>ERP · source system</strong><small>System of record</small></div><span class="node-badge">SOURCE</span></div>
+          <div class="connector"><span>change tracking ↓</span></div>
+          <div class="flow-node featured"><div><strong>SQL Server · sync layer</strong><small>Batching · staging · validation</small></div><span class="node-badge">CONTROLLED</span></div>
+          <div class="connector"><span>safe processing ↓</span></div>
+          <div class="flow-node"><div><strong>E-commerce · destination</strong><small>Consistent application data</small></div><span class="node-badge">TARGET</span></div>
+          <div class="terminal-foot"><span>CONCERNS <b>retries · concurrency</b></span><span>FOCUS <b>reliability first</b></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="expertise-strip"><div class="expertise-inner container"><span>THE WORK I FOCUS ON</span><strong>Database engineering</strong><strong>Backend services</strong><strong>System integrations</strong><strong>Data consistency</strong></div></div>
+
+    <section class="content container" id="work" aria-labelledby="work-title">
+      <div class="section-head"><div><span class="eyebrow">01 / Selected work</span><h2 id="work-title">The systems behind the experience.</h2></div><p>Selected, anonymized examples of the systems I've contributed to. Client-specific code and implementation details are intentionally omitted.</p></div>
+      <div class="case-grid">
+        <article class="case">
+          <div class="case-copy">
+            <div class="case-topline"><span class="case-index">CASE STUDY / 01</span><span class="case-type">Database integration</span></div>
+            <h3>Synchronizing ERP data with an e-commerce platform</h3>
+            <p>Worked on a SQL Server-based integration flow to move operational data from an ERP environment into an e-commerce system, while keeping responsibilities between the two systems clearly separated.</p>
+            <div class="tags"><span class="tag">SQL Server</span><span class="tag">Staging tables</span><span class="tag">Incremental sync</span><span class="tag">Batch processing</span></div>
+            <details class="case-more"><summary>Read engineering approach</summary><div class="case-detail"><strong>The problem</strong><br>Downstream application data had to stay aligned with its ERP source, without turning the source system into a direct application dependency.<br><br><strong>My engineering focus</strong><ul><li>Structure change logs, pending records, staging, and final updates as separate responsibilities.</li><li>Process changes in manageable batches and use stable identifiers to decide what needs updating.</li><li>Plan for job overlap, repeat execution, and record-level processing status.</li></ul><br><strong>Important design principle:</strong> retries should not produce duplicate business records or leave unclear sync states. No internal SQL or performance figures are published here.</div></details>
+          </div>
+          <div class="case-visual" role="img" aria-label="Conceptual flow from ERP change log to staging to e-commerce">
+            <div class="visual-lanes"><div class="lane"><span>ERP</span><div class="lane-line"></div><b>Change log</b></div><div class="lane"><span>Sync job</span><div class="lane-line"></div><b>Staging</b></div><div class="lane"><span>ECOM</span><div class="lane-line"></div><b>Main tables</b></div></div><span class="visual-label">CONCEPTUAL DATA FLOW / NOT INTERNAL ARCHITECTURE</span>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-visual visual-api" role="img" aria-label="Conceptual API request processing illustration"><div class="api-row"><span>INPUT</span> price update event</div><div class="api-row"><span>CHECK</span> vendor configuration</div><div class="api-row"><span>SIGN</span> authenticated request</div><div class="api-row dim"><span>SEND</span> external API</div></div>
+          <div><div class="case-topline"><span class="case-index">CASE STUDY / 02</span><span class="case-type">API integration</span></div><h3>Integrating electronic shelf-label systems</h3><p>Worked with external vendor APIs for product and pricing updates, including request signing, configuration management, and scheduled update flows.</p><div class="tags"><span class="tag">Java</span><span class="tag">REST APIs</span><span class="tag">SQL Server</span><span class="tag">Scheduled jobs</span></div></div>
+          <details class="case-more"><summary>Read engineering approach</summary><div class="case-detail"><strong>Engineering focus:</strong> Think through branch-specific vendor settings, signed API requests, and the difference between immediate updates and scheduled processing. Handle API errors without losing visibility into what was attempted. Vendor secrets and request credentials are never part of this demonstration.</div></details>
+        </article>
+        <article class="case">
+          <div class="case-visual visual-cms" role="img" aria-label="Conceptual content management schedule cards"><div class="cms-window"><div class="cms-bar"><i></i><i></i><i></i></div><div class="cms-inner"><div class="cms-card"><i></i></div><div class="cms-card"><i></i></div><div class="cms-card"><i></i></div></div></div></div>
+          <div><div class="case-topline"><span class="case-index">CASE STUDY / 03</span><span class="case-type">Backend data modeling</span></div><h3>Content scheduling and product grouping</h3><p>Worked on backend database logic for e-commerce content sections, schedules, grouped product cards, and publishing behavior.</p><div class="tags"><span class="tag">Stored procedures</span><span class="tag">Relational modeling</span><span class="tag">Publishing workflows</span></div></div>
+          <details class="case-more"><summary>Read engineering approach</summary><div class="case-detail"><strong>Engineering focus:</strong> Model relationships between sections, schedules, groups, and items; distinguish draft changes from published content; and keep interface procedures consistent when saving and retrieving data. The example intentionally excludes private schema definitions and customer-specific data.</div></details>
+        </article>
+        <article class="case">
+          <div class="case-copy">
+            <div class="case-topline"><span class="case-index">CASE STUDY / 04</span><span class="case-type">Retail ERP development</span></div>
+            <h3>Developing ERP workflows for supermarket operations</h3>
+            <p>Contributed to the development and enhancement of an ERP system used by a major supermarket chain in Fiji. My work covered purchasing and purchase order management, goods receiving processes, and invoicing functionality.</p>
+            <div class="tags"><span class="tag">Retail ERP</span><span class="tag">Purchase orders</span><span class="tag">Goods receiving</span><span class="tag">Invoicing</span><span class="tag">SQL Server</span></div>
+            <details class="case-more"><summary>Read about the work</summary><div class="case-detail"><strong>Business context</strong><br>Supermarket operations depend on accurate purchasing, receiving, and invoicing workflows. Backend changes have to reflect how these processes work in practice.<br><br><strong>My contributions</strong><ul><li>Developed and enhanced functionality related to purchasing and purchase order management.</li><li>Worked on goods receiving processes and their supporting ERP workflows.</li><li>Developed and maintained invoicing functionality.</li></ul><br><strong>What this work developed:</strong> a practical understanding of retail business processes and how ERP modules support day-to-day operations. The diagram is illustrative, not the customer's internal implementation.</div></details>
+          </div>
+          <div class="case-visual visual-retail" role="img" aria-label="Illustrative retail ERP modules for purchasing, goods receiving, and invoicing">
+            <div class="retail-board"><div class="retail-header"><span>RETAIL ERP</span><span>WORKFLOW MODULES</span></div><div class="retail-step"><span class="retail-count">01</span><div><strong>Purchasing</strong><small>Purchase orders · management</small></div><span class="retail-pill">ERP</span></div><div class="retail-step"><span class="retail-count">02</span><div><strong>Goods receiving</strong><small>Receiving processes · workflows</small></div><span class="retail-pill">ERP</span></div><div class="retail-step"><span class="retail-count">03</span><div><strong>Invoicing</strong><small>Invoice features · maintenance</small></div><span class="retail-pill">ERP</span></div></div>
+            <span class="visual-label">ILLUSTRATIVE MODULE VIEW / NO CUSTOMER DATA</span>
+          </div>
+        </article>
+        <article class="case">
+          <div class="case-visual visual-api" role="img" aria-label="Illustrative purchase order sent from an ERP system to an external vendor portal using an API"><div class="api-row"><span>CREATE</span> purchase order in ERP</div><div class="api-row"><span>PREPARE</span> vendor API request</div><div class="api-row"><span>SEND</span> purchase order via API</div><div class="api-row dim"><span>TARGET</span> vendor portal</div></div>
+          <div><div class="case-topline"><span class="case-index">CASE STUDY / 05</span><span class="case-type">Third-party API integration</span></div><h3>Connecting ERP purchase orders to vendor portals</h3><p>Implemented functionality to raise and send purchase orders from the ERP system to third-party vendor portals using vendor-provided APIs, helping connect internal purchasing workflows with external vendor systems.</p><div class="tags"><span class="tag">ERP integration</span><span class="tag">Vendor APIs</span><span class="tag">Purchase orders</span><span class="tag">Backend workflows</span></div></div>
+          <details class="case-more"><summary>Read about the integration</summary><div class="case-detail"><strong>Business need:</strong> Purchase orders created in the ERP needed a way to reach external vendor portals.<br><br><strong>My contribution:</strong> Worked on the integration functionality for raising purchase orders and submitting them through the APIs provided by third-party vendors.<br><br><strong>Integration perspective:</strong> The ERP and external portals are separate systems with different responsibilities. This public example describes the flow at a high level without revealing partner-specific requests, credentials, or private implementation details.</div></details>
+        </article>
+      </div>
+    </section>
+
+    <section class="content container" id="expertise" aria-labelledby="expertise-title">
+      <div class="section-head"><div><span class="eyebrow">02 / Core expertise</span><h2 id="expertise-title">My work lives below the UI.</h2></div><p>Tools matter, but I care most about clear data contracts, safe changes, and predictable behavior.</p></div>
+      <div class="skills-grid">
+        <div class="skill-card"><div class="skill-num">01 — DATABASES</div><h3>SQL Server development</h3><p>Stored procedures, query analysis, transactional behavior, data modeling, and batch-oriented workflows.</p></div>
+        <div class="skill-card"><div class="skill-num">02 — BACKEND</div><h3>Java development</h3><p>Java and Spring Boot fundamentals, application-side integration logic, and data-facing backend work.</p></div>
+        <div class="skill-card"><div class="skill-num">03 — INTEGRATIONS</div><h3>Business system integration</h3><p>ERP-to-e-commerce synchronization, external vendor APIs, and purchasing, receiving, and invoicing workflows.</p></div>
+        <div class="skill-card"><div class="skill-num">04 — OPERATIONS</div><h3>Production-minded thinking</h3><p>Monitoring sync behavior, diagnosing failures, handling retries, and avoiding overlapping processing.</p></div>
+      </div>
+      <div class="toolkit"><span class="tool">Microsoft SQL Server</span><span class="tool">T-SQL</span><span class="tool">Java</span><span class="tool">Spring Boot</span><span class="tool">Retail ERP</span><span class="tool">Vendor APIs</span><span class="tool">REST APIs</span><span class="tool">SQL Server Agent</span><span class="tool">Python · learning/projects</span><span class="tool">Git</span></div>
+    </section>
+
+    <section class="content container" id="notes" aria-labelledby="notes-title">
+      <div class="section-head"><div><span class="eyebrow">03 / Engineering notes</span><h2 id="notes-title">The thinking behind the work.</h2></div><p>Short technical notes. Over time, these can grow into public posts and runnable GitHub examples.</p></div>
+      <div class="notes-grid">
+        <article class="note"><span class="eyebrow">DATA RELIABILITY / 4 MIN READ</span><h3>A sync job should be safe to run twice.</h3><p>Retries are unavoidable. Duplicate processing should not be.</p><details><summary>Read note</summary><p>I prefer separating detection of changes from application of changes. Each batch should have an identifiable set of records, and processing should be able to recognize what has already succeeded. Failures need to leave enough state for a clean retry. Idempotence is a design decision, not a final error-handling patch.</p></details></article>
+        <article class="note"><span class="eyebrow">SQL SERVER / 3 MIN READ</span><h3>Before rewriting a slow query, find the real cost.</h3><p>Start with execution evidence rather than guessing at indexes.</p><details><summary>Read note</summary><p>Check how often the query runs, what rows it actually reads, whether estimates differ from reality, and if blocking is part of the delay. An index can help, but it can also increase write cost. I look for the smallest change that fixes a measured bottleneck and can be tested safely.</p></details></article>
+        <article class="note"><span class="eyebrow">JOB DESIGN / 3 MIN READ</span><h3>A schedule is not a concurrency strategy.</h3><p>Two jobs can overlap even when their start times don't.</p><details><summary>Read note</summary><p>Execution time varies. If overlapping runs can corrupt status or process the same records, clock-based spacing isn't enough. I prefer explicit coordination, clear batch ownership, and monitoring that shows when a run was skipped, delayed, or failed.</p></details></article>
+      </div>
+    </section>
+
+    <section class="content container" id="about" aria-labelledby="about-title">
+      <div class="about"><div><span class="eyebrow">04 / About me</span><h2 id="about-title">Backend work grounded in business processes.</h2></div><div><p>I'm a backend developer with experience contributing to an ERP system used by a major supermarket chain in Fiji. I've developed and enhanced purchasing and purchase order functionality, worked on goods receiving workflows, and developed and maintained invoicing features.</p><p>I've also worked on integrations between the ERP and third-party vendor portals, including functionality to raise and send purchase orders through vendor-provided APIs. Alongside retail ERP development, my work includes SQL Server database logic, Java-based backend development, and ERP-to-e-commerce data synchronization.</p><p>SQL Server is my strongest area. I like understanding the business process behind a requirement and translating it into clear, maintainable backend behavior. This portfolio is where I share selected work and what I'm learning as a developer.</p><div class="about-list"><span>Based in India</span><span>Retail ERP experience</span><span>SQL Server & Java</span><span>Third-party integrations</span></div></div></div>
+    </section>
+
+    <section class="content container" id="contact" aria-labelledby="contact-title">
+      <div class="contact-card"><div><span class="eyebrow">05 / Connect</span><h2 id="contact-title">Working on backend systems that power real operations?</h2><p>I'm interested in backend, ERP, and database development roles involving SQL Server, Java, retail business workflows, and system integrations.</p><div class="contact-links" id="profile-links" hidden></div><p class="setup-note" id="contact-setup">Contact details are intentionally hidden until verified. Add your email and profile URLs in the configuration near the bottom of this file.</p></div><a href="#work" class="btn btn-contact" id="contact-action">View my work <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><p>© <span id="year">2026</span> Sai Jeevan · Built for clarity, not noise.</p><div class="foot-links"><a href="#top">Back to top ↑</a><a href="#notes">Engineering notes</a></div></div></footer>
+  <script>
+    /* Edit only verified contact details. Empty values intentionally hide external links. */
+    const profile = {
+      email: '',
+      linkedin: '',
+      github: ''
+    };
+    const navToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      navToggle.textContent = open ? '×' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open menu');
+      navToggle.textContent = '☰';
+    }));
+    document.getElementById('year').textContent = String(new Date().getFullYear());
+    const contactAction = document.getElementById('contact-action');
+    const profileLinks = document.getElementById('profile-links');
+    const setupNote = document.getElementById('contact-setup');
+    const allowed = [ ['email', 'Email', 'mailto:'], ['linkedin', 'LinkedIn', ''], ['github', 'GitHub', ''] ];
+    allowed.forEach(([key, label, prefix]) => {
+      const value = String(profile[key] || '').trim();
+      if (!value || (key !== 'email' && !/^https:\/\//.test(value))) return;
+      const link = document.createElement('a');
+      link.href = prefix + value;
+      link.textContent = label + ' ↗';
+      if (key !== 'email') { link.target = '_blank'; link.rel = 'noopener noreferrer'; }
+      profileLinks.appendChild(link);
+      profileLinks.hidden = false;
+    });
+    if (profile.email.trim()) {
+      contactAction.href = 'mailto:' + profile.email.trim();
+      contactAction.innerHTML = 'Get in touch <span aria-hidden="true">↗</span>';
+    }
+    if (profileLinks.childElementCount > 0) setupNote.hidden = true;
+  </script>
+</body>
+</html>
